@@ -32,7 +32,24 @@ class Model {
                 return
             }
             
-            // Pass data into the video object
+            do {
+                
+                // Pass data into the video object
+                let decoder = JSONDecoder()
+                
+                // Do we have dates? We need to let the decoder be aware
+                decoder.dateDecodingStrategy = .iso8601
+                
+                let response = try decoder.decode(Response.self, from: data!)
+                
+                dump(response)
+                
+            } catch {
+                
+                
+                
+            }
+            
             
             
         }
